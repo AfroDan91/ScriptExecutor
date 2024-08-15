@@ -1,7 +1,0 @@
-{
-    "name":         "exampleScript1",
-    "fileName":     "test.py",
-    "path":         "../testFiles/",
-    "description":  "script for testing with",
-    "arguments":    "some,arguments"
-}
