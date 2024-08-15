@@ -1,0 +1,20 @@
+[
+    {
+        "id":           "1",
+        "name":         "exampleScript1",
+        "fileName":     "test.py",
+        "path":         "C:/Users/danie/Desktop/Python training/ScriptExecutor/utils/testFiles/test.py",
+        "description":  "script for testing with",
+        "arguments":    "some,arguments",
+        "tags":         "some,tags"
+    },
+    {
+        "id":           "2",
+        "name":         "exampleScript2",
+        "fileName":     "test.py",
+        "path":         "C:/Users/danie/Desktop/Python training/ScriptExecutor/utils/testFiles/test2.py",
+        "description":  "script for testing with",
+        "arguments":    "some,arguments",
+        "tags":         "some,tags"
+    }
+]
