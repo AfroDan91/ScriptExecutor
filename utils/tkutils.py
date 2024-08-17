@@ -28,14 +28,21 @@ def createLabel(location,text):
 # buttons
 def createButton(location, text, path=''):
     if location and text and path:
-        return tk.Button(master=location, text="Run", command=lambda *args:runScript(path))
+        if text == "Run":
+            return tk.Button(master=location, text="Run", command=lambda *args:runScript(path))
+        elif text == "Edit":
+            return tk.Button(master=location, text="Edit", command=lambda *args:runScript(path))
     else:
         raise ValueError(f"missing location, text or path. location = {location}  Type = {text}  path = {path}")
-    
+   
 
 def runScript(filePath):
     filePath = filePath.replace("/", "\\")
     subprocess.call(f'python "{filePath}" 1', shell=True)
+
+def editMode():
+    pass
+    
 
 
 
