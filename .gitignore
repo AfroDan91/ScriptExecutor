@@ -163,3 +163,7 @@ cython_debug/
 
 # misc
 exampleui.png
+
+# test
+/testFiles
+codeTest.py
