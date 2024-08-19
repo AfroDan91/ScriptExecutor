@@ -78,7 +78,6 @@ def createCheckBox(location, tags, command):
     tags = sorted(list(tags))
 
     for tag in tags:
-        print(tag)
         var = tk.IntVar()
         check_vars[tag] = var
         tag_check = tk.Checkbutton(location, text=tag, variable=var, command=lambda tag=tag:command(tag))
