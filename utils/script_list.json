@@ -15,6 +15,6 @@
         "path":         "C:/Users/danie/Desktop/Python training/ScriptExecutor/utils/testFiles/test2.py",
         "description":  "script for testing with",
         "arguments":    "some,arguments",
-        "tags":         "some,tags"
+        "tags":         "some,other,tags"
     }
 ]
