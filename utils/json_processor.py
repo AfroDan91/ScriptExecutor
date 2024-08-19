@@ -1,4 +1,6 @@
 import tkinter as tk
+import subprocess
+
 class ScripObj:
     """
     Class to handle saved scripts
@@ -10,4 +12,17 @@ class ScripObj:
         self.file_path   = json['path']
         self.description = json.get('description', '')
         self.arguments   = json.get('arguments', [])
-        
+        self.tags        = json.get('tags').split(',')
+
+    def nameLabel(self, location):
+        return tk.Label(master=location, text=self.script_name, height = 2)
+    
+    def descLabel(self, location):
+        return tk.Label(master=location, text=self.description, height = 2)
+    
+    def runButton(self, location):
+        return tk.Button(master=location, text="Run", command=self.runScript)
+    
+    def runScript(self):
+        self.file_path = self.file_path.replace("/", "\\")
+        subprocess.call(f'python "{self.file_path}" 1', shell=True)

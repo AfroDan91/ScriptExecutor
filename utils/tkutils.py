@@ -43,18 +43,47 @@ def runScript(filePath):
 def editMode():
     pass
     
+def createCheckBox(location, tags, command):
+    """
+    Creates a set of checkboxes for a given set of tags and associates them with a command.
 
+    This function dynamically generates checkboxes for each tag in the provided `tags` list or set.
+    The checkboxes are placed in the specified `location` (a Tkinter frame or widget) and are aligned
+    in a row. Each checkbox is linked to an `IntVar` to track its state (checked or unchecked).
+    When a checkbox is toggled, the `command` function is called with the tag associated with that checkbox.
 
+    Parameters:
+    location (tk.Widget): The parent widget (typically a Tkinter frame) where the checkboxes will be placed.
+    tags (set or list): A set or list of strings representing the tags for which checkboxes will be created.
+    command (function): A callback function that is executed when a checkbox is toggled. The function should
+                        accept a single argument, which will be the tag associated with the toggled checkbox.
 
+    Returns:
+    dict: A dictionary where the keys are the tags and the values are `IntVar` instances associated with each checkbox.
+          These `IntVar` objects can be used to check the state of each checkbox (1 for checked, 0 for unchecked).
 
-# radio buttons
-# def createRadio(location, bool, type command=toggleBool):
-#     if type == "alwaysOnTop":
-#         return tk.Checkbutton(location, text="Always on top", variable=bool, 
-#                              onvalue=1, offvalue=0, command=lambda *args:toggleBool(bool))
-# def toggleBool(bool):
-#     return not bool
+    Example:
+    ```python
+    def on_check(tag):
+        print(f"{tag} was toggled")
 
-def scriptRow(location, obj):
-    new_frame = createFrame(location,"scriptItem")
-    createLabel(new_frame, obj.script_name)
+    frame = tk.Frame(root)
+    tags = {"Tag1", "Tag2", "Tag3"}
+    check_vars = createCheckBox(frame, tags, on_check)
+    ```
+    """
+
+    check_vars = {}
+    count = 1
+    tags = sorted(list(tags))
+
+    for tag in tags:
+        print(tag)
+        var = tk.IntVar()
+        check_vars[tag] = var
+        tag_check = tk.Checkbutton(location, text=tag, variable=var, command=lambda tag=tag:command(tag))
+        tag_check.grid(row=0,column=count)
+        count += 1
+
+    count = 1
+    return check_vars
